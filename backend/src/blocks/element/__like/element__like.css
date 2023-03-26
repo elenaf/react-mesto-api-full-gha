@@ -1,0 +1,11 @@
+.element__like {
+  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #000000;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+}

@@ -1,0 +1,10 @@
+.element__like-amount {
+  /* display: none; */
+  margin: 0 auto;
+  padding-top: 3px;
+  padding: 0;
+  width: 10px;
+  height: 10px;
+  font-size: 13px;
+  line-height: 1.2em;
+}
