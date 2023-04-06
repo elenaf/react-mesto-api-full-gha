@@ -30,7 +30,7 @@ class Popup extends React.Component {
         
         return (
             <div onClick={this.handleOverlayClick} className={ `popup popup_${ this.props.name } ${ this.props.isOpen ? "popup_opened" : "" }` }>
-                <div className={`popup__container ${ (this.props.name === 'image-show') ? '' : 'popup__container_type_form' } `}>
+                <div className={`popup__container ${ (this.props.name === 'image-show' || this.props.name === 'registration-result') ? '' : 'popup__container_type_form' } `}>
                     <button onClick={this.props.onClose} type="button" className="popup__close-button"></button>
                     {this.props.children}
                 </div>

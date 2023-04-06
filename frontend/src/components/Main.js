@@ -1,6 +1,6 @@
 import React from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
-import api from "../utils/api";
+
 import Card from "./Card";
 
 class Main extends React.Component {
@@ -41,7 +41,6 @@ class Main extends React.Component {
             ></button>
           </section>
     
-          {/* <!-- Контейнер для карточек с фото --> */}
           <div className="elements">
             {this.props.cards.map((card) => 
               <Card card={card} key={card._id} onCardClick={this.props.onCardClick} onCardLike={this.props.onCardLike} onCardDelete={this.props.onCardDelete}/>
