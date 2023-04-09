@@ -9,9 +9,16 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const app = express();
 
 dotenv.config();
-const { PORT, DATABASE_URL } = process.env;
+const { PORT = 3000, DATABASE_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 
 app.use(requestLogger); // подключаем логгер запросов
+
+// краш-тест сервера
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.use(router); // запускаем роутер.
 
