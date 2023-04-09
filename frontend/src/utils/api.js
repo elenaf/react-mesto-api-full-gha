@@ -86,9 +86,9 @@ class Api {
 }
 
 const api = new Api({
-    url: 'https://mesto.nomoreparties.co/v1/cohort-46/',
+    url: 'https://mesto-react.nomoredomains.monster',
     headers: {
-      authorization: '1cbac3de-e369-4b86-95d5-992d89bef9af',
+      //authorization: '1cbac3de-e369-4b86-95d5-992d89bef9af',
       "content-type": "application/json"
     }
   });
