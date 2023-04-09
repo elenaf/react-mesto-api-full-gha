@@ -1,12 +1,15 @@
 // функциональность точки входа
 const { errors } = require('celebrate');
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const router = require('./routes/router'); // импортируем роутер
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
+
+app.use(cors());
 
 dotenv.config();
 const { PORT = 3000, DATABASE_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
