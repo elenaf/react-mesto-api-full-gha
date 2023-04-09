@@ -1,6 +1,7 @@
-export const BASE_URL = 'https://api.mesto-react.nomoredomains.monster'
+export const BASE_URL = 'https://mesto-react.nomoredomains.monster'
 const defaultHeaders = {
     "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "https://mesto-react.nomoredomains.monster",
 }
 
 const handleFetchResponse = (res) => {
