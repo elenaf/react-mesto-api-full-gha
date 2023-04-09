@@ -22,6 +22,8 @@ const {
   MONGO_DUPLICATE_ERROR_CODE,
 } = errCodes;
 
+const { JWT_SECRET = 'secret' } = process.env;
+
 const getUsers = async (req, res, next) => {
   try {
     const users = await User.find({});
@@ -161,7 +163,7 @@ const login = async (req, res, next) => {
     if (!user) throw new UnauthorizedError('Unauthorized');
     const passMatch = await bcrypt.compare(password, user.password);
     if (!passMatch) throw new UnauthorizedError('Unauthorized');
-    const token = jwt.sign({ _id: user._id }, 'secret', { expiresIn: '7d' });
+    const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
     res.status(OK).send({ message: 'Welcome!', token });
   } catch (err) {
     if (err.message === 'Unauthorized') {

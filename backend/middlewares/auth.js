@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 
 const UnauthorizedError = require('../errors/unauthorized-err');
 
+const { JWT_SECRET = 'secret' } = process.env;
+
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
 
@@ -15,7 +17,7 @@ module.exports = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, 'secret');
+    payload = jwt.verify(token, JWT_SECRET);
   } catch (err) {
     if (err.name === 'JsonWebTokenError') {
       throw new UnauthorizedError('Нет доступа');
