@@ -48,16 +48,18 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this.tokenCheck(); 
     if (this.state.loggedIn && this.state.loadingData) {
       this.setState({
         loadingData: false,
       });
+      
 
     api.getUserInfo()
     .then(data => {
       this.setState({
         currentUser: data,
-      })
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -67,7 +69,7 @@ class App extends React.Component {
     .then(data => {
       this.setState({
         cards: data,
-      })
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -81,7 +83,7 @@ class App extends React.Component {
       this.setState({
         loadingData: false,
       });
-
+  
       api.getUserInfo()
       .then(data => {
         this.setState({
@@ -227,12 +229,15 @@ class App extends React.Component {
         if (res) {
           this.setState({
             loggedIn: true,
-            userData: {email: res.data.email, id: res.data._id}
+            userData: {email: res.email, id: res._id} // тут было email: res.data.email, id: res.data._id
           }, () => {
             this.props.history.push("/")
           });
         }
-      });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     }
   }
 

@@ -13,14 +13,20 @@ class Api {
   
     getUserInfo() {
       return fetch(`${this._url}users/me`, {
-        headers: this._headers,
+        headers: {
+          ...this._headers,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        }
       })
         .then((res) => this._handleFetchResponse(res));
       }
   
     getInitialCards() {
       return fetch(`${this._url}cards `, {
-        headers: this._headers,
+        headers: {
+          ...this._headers,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        }
       })
         .then((res) => this._handleFetchResponse(res));
     }
@@ -28,7 +34,10 @@ class Api {
     editProfile({ name, about }) {
       return fetch(`${this._url}users/me `, {
         method: 'PATCH',
-        headers: this._headers,
+        headers: {
+          ...this._headers,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
         body: JSON.stringify({ name, about })
       })
         .then((res) => this._handleFetchResponse(res));
@@ -37,7 +46,10 @@ class Api {
     addNewCard({ name, link }) {
       return fetch(`${this._url}cards `, {
         method: 'POST',
-        headers: this._headers,
+        headers: {
+          ...this._headers,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
         body: JSON.stringify({ name, link })
       })
         .then((res) => this._handleFetchResponse(res));
@@ -46,7 +58,10 @@ class Api {
     deleteCard(cardId) {
       return fetch(`${this._url}cards/${cardId}`, {
         method: 'DELETE',
-        headers: this._headers
+        headers: {
+          ...this._headers,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        }
       })
         .then((res) => this._handleFetchResponse(res));
     }
@@ -54,7 +69,10 @@ class Api {
     addLike(cardId) {
       return fetch(`${this._url}cards/${cardId}/likes`, {
         method: 'PUT',
-        headers: this._headers,
+        headers: {
+          ...this._headers,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       })
         .then((res) => this._handleFetchResponse(res));
     }
@@ -69,7 +87,10 @@ class Api {
     removeLike(cardId) {
       return fetch(`${this._url}cards/${cardId}/likes`, {
         method: 'DELETE',
-        headers: this._headers,
+        headers: {
+          ...this._headers,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       })
         .then((res) => this._handleFetchResponse(res));
     }
@@ -77,7 +98,10 @@ class Api {
     updateAvatar(avatar) {
       return fetch(`${this._url}users/me/avatar`, {
         method: 'PATCH',
-        headers: this._headers,
+        headers: {
+          ...this._headers,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
         body: JSON.stringify(avatar)
       })
         .then((res) => this._handleFetchResponse(res));
@@ -86,9 +110,12 @@ class Api {
 }
 
 const api = new Api({
-    url: 'http://localhost:3000',
+    // url: 'https://nomoreparties.co/v1/cohort-46/',
+    url: 'https://mesto-react.nomoredomains.monster',
+    // url: 'http://localhost:8000/',
     headers: {
-      //authorization: '1cbac3de-e369-4b86-95d5-992d89bef9af',
+      // authorization: '1cbac3de-e369-4b86-95d5-992d89bef9af',
+      // authorization: `Bearer ${localStorage.getItem('token')}`,
       "content-type": "application/json"
     }
   });

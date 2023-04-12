@@ -15,8 +15,8 @@ const {
 
 const getCards = async (req, res, next) => {
   try {
-    const cards = await Card.find({}).populate('owner');
-    res.status(OK).send(cards);
+    const cards = await Card.find({}).populate(['likes', 'owner']); // , null, { populate: 'owner' })/*  Card.find({}).populate('owner') */;
+    res.status(OK).send(cards.reverse());
   } catch (err) {
     next(err);
   }
