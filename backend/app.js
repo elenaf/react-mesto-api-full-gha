@@ -9,7 +9,15 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://mesto-react.nomoredomains.monster/',
+    'http://mesto-react.nomoredomains.monster/',
+    'http://localhost:3000',
+  ],
+  methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Authorization', 'Content-Type'],
+}));
 
 dotenv.config();
 const { PORT = 3000, DATABASE_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
