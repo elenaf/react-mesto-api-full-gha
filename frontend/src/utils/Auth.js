@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://mesto-react.nomoredomains.monster'
+export const BASE_URL = 'https://api.mesto-react.nomoredomains.monster'
 // export const BASE_URL = 'http://localhost:8000'
 // export const BASE_URL = 'https://auth.nomoreparties.co';
 const defaultHeaders = {
