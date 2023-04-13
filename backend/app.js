@@ -15,7 +15,7 @@ app.use(cors({
     'http://mesto-react.nomoredomains.monster/',
     'http://localhost:3000',
   ],
-  methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
+  methods: ['GET', 'HEAD', 'PUT', 'POST', 'PATCH', 'DELETE'],
   allowedHeaders: ['Authorization', 'Content-Type'],
 }));
 
