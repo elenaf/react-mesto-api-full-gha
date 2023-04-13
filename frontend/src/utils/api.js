@@ -117,7 +117,7 @@ const api = new Api({
       // authorization: '1cbac3de-e369-4b86-95d5-992d89bef9af',
       // authorization: `Bearer ${localStorage.getItem('token')}`,
       "content-type": "application/json",
-      "Access-Control-Allow-Origin": '*',
+      // "Access-Control-Allow-Origin": '*',
     }
   });
   
