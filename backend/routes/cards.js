@@ -26,8 +26,7 @@ cardsRoutes.post('/', express.json(), celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
     link: Joi.string().custom(validateUrl).required(),
-    owner: Joi.string(),
-  }).unknown(true),
+  }),
 }), createCard);
 cardsRoutes.delete('/:cardId', celebrate({
   params: Joi.object().keys({

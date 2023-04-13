@@ -45,8 +45,9 @@ const getUserById = async (req, res, next) => {
     }
     if (err.message === 'NotFound') {
       next(new NotFoundError('Пользователь не найден'));
+    } else {
+      next(err);
     }
-    next(err);
   }
 };
 
@@ -59,11 +60,11 @@ const getCurrentUser = async (req, res, next) => {
   } catch (err) {
     if (err.name === 'CastError') {
       next(new BadRequestError('Ошибка валидации ID'));
-    }
-    if (err.message === 'NotFound') {
+    } else if (err.message === 'NotFound') {
       next(new NotFoundError('Пользователь не найден'));
+    } else {
+      next(err);
     }
-    next(err);
   }
 };
 
@@ -95,11 +96,11 @@ const createUser = async (req, res, next) => {
   } catch (err) {
     if (err.code === MONGO_DUPLICATE_ERROR_CODE) {
       next(new ConflictError('Данный email уже используется'));
-    }
-    if (err.name === 'ValidationError') {
+    } else if (err.name === 'ValidationError') {
       next(new BadRequestError('Некорректные данные'));
+    } else {
+      next(err);
     }
-    next(err);
   }
 };
 
@@ -119,8 +120,9 @@ const updateProfile = async (req, res, next) => {
       next(new NotFoundError('Некорректные данные'));
     } else if (err.name === 'ValidationError') {
       next(new BadRequestError('Некорректные данные'));
+    } else {
+      next(err);
     }
-    next(err);
   }
 };
 
@@ -140,8 +142,9 @@ const updateAvatar = async (req, res, next) => {
       next(new NotFoundError('Пользователь не найден'));
     } else if (err.name === 'ValidationError') {
       next(new BadRequestError('Некорректные данные'));
+    } else {
+      next(err);
     }
-    next(err);
   }
 };
 
@@ -170,9 +173,9 @@ const login = async (req, res, next) => {
       next(new UnauthorizedError('Некорректный email или пароль'));
     } else if (err.name === 'ValidationError') {
       next(new BadRequestError('Некорректный email или пароль'));
+    } else {
+      next(err);
     }
-
-    next(err);
   }
 };
 

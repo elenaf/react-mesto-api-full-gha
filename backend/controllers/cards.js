@@ -53,8 +53,9 @@ const deleteCard = async (req, res, next) => {
   } catch (err) {
     if (err.name === 'CastError') {
       next(new BadRequestError('Ошибка валидации ID'));
+    } else {
+      next(err);
     }
-    next(err);
   }
 };
 
@@ -70,8 +71,9 @@ const likeCard = async (req, res, next) => {
   } catch (err) {
     if (err.name === 'CastError') {
       next(new BadRequestError('Ошибка валидации ID'));
+    } else {
+      next(err);
     }
-    next(err);
   }
 };
 
@@ -87,8 +89,9 @@ const dislikeCard = async (req, res, next) => {
   } catch (err) {
     if (err.name === 'CastError') {
       next(new BadRequestError('Ошибка валидации ID'));
+    } else {
+      next(err);
     }
-    next(err);
   }
 };
 
