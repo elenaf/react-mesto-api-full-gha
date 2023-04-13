@@ -24,18 +24,18 @@ usersRoutes.get('/', getUsers);
 usersRoutes.get('/me', getCurrentUser);
 usersRoutes.get('/:userId', celebrate({
   params: Joi.object().keys({
-    userId: Joi.string().alphanum().length(24),
+    userId: Joi.string().hex().length(24),
   }),
 }), getUserById);
 usersRoutes.patch('/me', express.json(), celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
+    name: Joi.string().min(2).max(30).required(),
+    about: Joi.string().min(2).max(30).required(),
   }),
 }), updateProfile);
 usersRoutes.patch('/me/avatar', express.json(), celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().custom(validateUrl),
+    avatar: Joi.string().custom(validateUrl).required(),
   }),
 }), updateAvatar);
 
