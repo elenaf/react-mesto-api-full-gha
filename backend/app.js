@@ -19,7 +19,6 @@ app.use(cors({
     'http://localhost:3000',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Authorization', 'Content-Type'],
 }));
 
 dotenv.config();
