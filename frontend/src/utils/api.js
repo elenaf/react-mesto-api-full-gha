@@ -110,14 +110,9 @@ class Api {
 }
 
 const api = new Api({
-    // url: 'https://nomoreparties.co/v1/cohort-46/',
     url: 'https://api.mesto-react.nomoredomains.monster/',
-    // url: 'http://localhost:8000/',
     headers: {
-      // authorization: '1cbac3de-e369-4b86-95d5-992d89bef9af',
-      // authorization: `Bearer ${localStorage.getItem('token')}`,
       "content-type": "application/json",
-      // "Access-Control-Allow-Origin": '*',
     }
   });
   

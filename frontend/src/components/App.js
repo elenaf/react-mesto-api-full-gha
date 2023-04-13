@@ -229,7 +229,7 @@ class App extends React.Component {
         if (res) {
           this.setState({
             loggedIn: true,
-            userData: {email: res.email, id: res._id} // тут было email: res.data.email, id: res.data._id
+            userData: {email: res.email, id: res._id},
           }, () => {
             this.props.history.push("/")
           });
