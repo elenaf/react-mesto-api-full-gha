@@ -18,7 +18,7 @@ app.use(cors({
     'https://localhost:3000',
     'http://localhost:3000',
   ],
-  methods: ['GET', 'HEAD', 'PUT', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  // methods: ['GET', 'HEAD', 'PUT', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
 }));
 
 dotenv.config();
