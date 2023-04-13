@@ -13,6 +13,9 @@ app.use(cors({
   origin: [
     'https://mesto-react.nomoredomains.monster/',
     'http://mesto-react.nomoredomains.monster/',
+    'https://api.mesto-react.nomoredomains.monster/',
+    'http://api.mesto-react.nomoredomains.monster/',
+    'https://localhost:3000',
     'http://localhost:3000',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'POST', 'PATCH', 'DELETE'],
