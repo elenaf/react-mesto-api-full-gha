@@ -42,8 +42,7 @@ const getUserById = async (req, res, next) => {
   } catch (err) {
     if (err.name === 'CastError') {
       next(new BadRequestError('Ошибка валидации ID'));
-    }
-    if (err.message === 'NotFound') {
+    } else if (err.message === 'NotFound') {
       next(new NotFoundError('Пользователь не найден'));
     } else {
       next(err);
