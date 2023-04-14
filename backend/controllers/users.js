@@ -76,12 +76,6 @@ const createUser = async (req, res, next) => {
     email,
     password,
   } = req.body;
-  if (!email) {
-    throw new BadRequestError('Введите email');
-  }
-  if (!password) {
-    throw new BadRequestError('Введите пароль');
-  }
   try {
     const hash = await bcrypt.hash(password, SALT_ROUNDS);
 
@@ -153,13 +147,6 @@ const login = async (req, res, next) => {
     email,
     password,
   } = req.body;
-
-  if (!email) {
-    throw new BadRequestError('Введите email');
-  }
-  if (!password) {
-    throw new BadRequestError('Введите пароль');
-  }
 
   try {
     const user = await User.findOne({ email }).select('+password');

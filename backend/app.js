@@ -54,7 +54,6 @@ app.use((err, req, res, next) => {
 // подключение к базе данных
 async function connect() {
   await mongoose.connect(DATABASE_URL); // подключаемся к БД
-  console.log(process.env);
   await app.listen(PORT);
 }
 
